@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styleeeee.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'imgs.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <title>About Us</title>
+    
+</head>
+
+<body>
+    <div class="header-bar-warp d-flex">
+        <h3 style='color: white; font-family: cursive; font-style: italic; font-size:26px;'><a style="color: white;"
+                href="{% url 'hair_app:index' %}">AI Based HairStyle Recommender</a></h3>
+
+        <nav class="top-nav-area w-75">
+
+            <!-- Menu -->
+            <ul class="main-menu primary-menu">
+                <li><a href="{% url 'hair_app:index' %}"><strong>Home</strong></a></li>
+                <li><a href="#"><strong>Facial Features</strong></a></li>
+                <li><a href="#"><strong>Gallery</strong></a></li>
+                <li><a href="{% url 'hair_app:aboutus' %}"><strong>About Us</strong></a></li>
+
+            </ul>
+        </nav>
+
+
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="column">
+            <div class="card">
+                <img src="{% static 'images/niten.jpg' %}" alt="Niten" style="width:100%; height:400px;">
+                <div class="container">
+                    <div class="container">
+                        <h2>Niten Lama</h2>
+
+
+                        <p>nitenlama46@gmail.com</p>
+                        <p></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="column">
+            <div class="card">
+                <img src="{% static 'images/manish.jpg' %}" alt="Manish" style="width:100%; height:400px;">
+                <div class="container">
+                    <h2>Manish Bhurtel</h2>
+                 
+                    
+                    <p>manish.bhurtel09@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-3"></div>
+
+        <div class="col-md-2"></div>
+        <div class="column">
+            <div class="card">
+                <img src="{% static 'images/aashma.jpg' %}" alt="Aashma" style="width:100%;height:400px;">
+                <div class="container">
+                        <h2>Aashma Uprety</h2>
+                        
+
+                        <p>aashmauprety@gmail.com</p>
+               
+                    </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>

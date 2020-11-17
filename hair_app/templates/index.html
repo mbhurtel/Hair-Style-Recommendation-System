@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+<link rel="stylesheet" href="{% static 'styleeeee.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <title>HairStyleRecommender</title>
+  </head>
+  <body>
+      <div class="header-bar-warp d-flex">
+        <h3 style='color: white; font-family: cursive; font-style: italic; font-size:26px;'><a style="color: white;" href="{% url 'hair_app:index' %}">
+            AI Based HairStyle Recommender</a></h3>
+        
+        <nav class="top-nav-area w-75">
+          
+          <!-- Menu -->
+          <ul class="main-menu primary-menu">
+            <li><a href="{% url 'hair_app:index' %}"><strong>Home</strong></a></li>
+            <li><a href="#"><strong>Facial Features</strong></a></li>
+            <li><a href="#"><strong>Gallery</strong></a></li>
+            <li><a href="{% url 'hair_app:aboutus' %}"><strong>About Us</strong></a></li>
+            
+          </ul>
+        </nav>
+        
+        
+      </div>
+      
+    
+     <br><br><br>
+      <div class="container">
+          <form method="post" id="fileform" enctype="multipart/form-data">
+            {% csrf_token %} 
+            <div class="file-upload">
+              <div class="file-select">
+                  <div class="file-select-button" id="fileName"><h6>Upload Image</h6></div>
+                <div class="file-select-name" id="noFile">No Image Uploaded...</div> 
+                <input id="chooseFile" type="file" name="myfile">
+              </div>
+              <br><br>
+           </div>
+           <br>
+           <div class="container">
+              <div class="row">
+                <div class="col-sm-5">
+                    
+                </div>
+                
+                <div class="col-sm-4">
+                    <button id="sub" class="btn btn-primary btn-lg" type="submit">Recommend</button>
+                </div>
+                 
+              </div>
+           </div>
+           
+          </form>
+      </div>
+      <br>
+      
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+                  {% if file_url %}
+                  {% if face %}
+                    <h1 id='filename'><strong>{{ result }}</strong></h1>
+                  <img src={{ file_url }}>
+            </div>
+        </div>
+        <div class="row">
+            {% if result == "Round" %}
+                    <h2><span style="color: white"> You have a Round face. Following Hairstyles are recommended for you: </span></h2>
+
+                    <div class="col-md-3">
+                        <img src="{% static 'images/Round Hairstyles/asymmetric bob.jpeg' %}" alt="Round1" height="350" width="300">
+                    </div>
+
+                    <div class="col-md-3">
+                            <img src="{% static 'images/Round Hairstyles/long bob.png' %}" alt="Round2" height="350" width="400">
+                    </div>
+
+                    <div class="col-md-3">
+                        <img src="{% static 'images/Round Hairstyles/long soft waves.jpg' %}" alt="Round3" height="350" width="400">
+                    </div>
+
+                    <div class="col-md-3">
+                        <img src="{% static 'images/Round Hairstyles/short waves with long bangs.jpg' %}" alt="Round4" height="350" width="400">
+                    </div>
+
+                {% elif result == "Square" %}
+                <h2><span style="color: white"> You have a Square face.&nbsp;Following Hairstyles are recommended for you: </span></h2>
+
+                    <div class="col-md-3">
+                            <img src="https://stylesatlife.com/wp-content/uploads/2019/07/Front-Fringes.jpg" alt="Square1" height="350" width="400">
+
+                    </div>
+                    <div class="col-md-3">
+                         <img src="https://stylesatlife.com/wp-content/uploads/2015/09/Hairstyles-For-Oval-Faces-13.jpg" alt="Square2" height="350" width="400">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="https://stylesatlife.com/wp-content/uploads/2015/09/Hairstyles-For-Oval-Faces-14.jpg" alt="Square3" height="350" width="400">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="https://stylesatlife.com/wp-content/uploads/2015/09/Hairstyles-For-Oval-Faces-16.jpg" alt="Square4" height="350" width="400">
+                    </div>
+
+
+                {% elif result == "Oval" %}
+                    <h2><span style="color: white"> You have an Oval face.&nbsp;Following Hairstyles are recommended for you: </span></h2>
+
+                        <div class="col-md-3">
+                             <img src="https://www.byrdie.com/thmb/3KaeKfdlVA6Y-IDIwBcV0dlk07A=/800x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/jenna-elfman-56a087843df78cafdaa276f0.jpg" alt="Oval1" height="350" width="400">
+                        </div>
+                        <div class="col-md-3">
+                             <img src="https://www.byrdie.com/thmb/jPfiAElkNZ8vBcWHL1a-2LVpjx0=/800x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/platinum-blond-shag-57befad43df78cc16e064117.jpg" alt="Oval2" height="350" width="400">
+                        </div>
+                        <div class="col-md-3">
+                            <img src="https://www.byrdie.com/thmb/lfXlMg1w01HUGFa1bFG_BjNLzqA=/800x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/julianne-hough-blonde-hair-56a0849f3df78cafdaa2612e.jpg" alt="Oval3" height="350" width="400">
+                        </div>
+                        <div class="col-md-3">
+                            <img src="" alt="Oval4" height="350" width="400">
+                        </div>
+
+                {% elif result == "Oblong" %}
+                    <h2><span style="color: white"> You have an Oblong face. Following Hairstyles are recommended for you: </span></h2>
+
+                        <div class="col-md-3">
+                             <img src= "{% static 'images/Oblong Hairstyles/chin length bob.jpg'%}" alt="Oblong1" height="350" width="400">
+                        </div>
+                        <div class="col-md-3">
+                             <img src="{% static 'images/Oblong Hairstyles/pixie with short bangs.jpg'%}" alt="Oblong2" height="350" width="400">
+                        </div>
+                        <div class="col-md-3">
+                            <img src="{% static 'images/Oblong Hairstyles/retro curls.jpg'%}" alt="Oblong3" height="350" width="400">
+                        </div>
+                        <div class="col-md-3">
+                            <img src="{% static 'images/Oblong Hairstyles/soft waves.jpg'%}" alt="Oblong4" height="350" width="400">
+                        </div>
+
+                {% else %}
+                    <h2><span style="color: white"> You have a Heart face. Following Hairstyles are recommended for you: </span></h2>
+
+                        <div class="col-md-3">
+                             <img src="{{ new_url }}" alt="Heart1" height="350" width="400">
+                        </div>
+                        <div class="col-md-3">
+                             <img src="https://www.byrdie.com/thmb/jPfiAElkNZ8vBcWHL1a-2LVpjx0=/800x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/platinum-blond-shag-57befad43df78cc16e064117.jpg" alt="Heart2" height="350" width="400">
+                        </div>
+                        <div class="col-md-3">
+                            <img src="https://www.byrdie.com/thmb/lfXlMg1w01HUGFa1bFG_BjNLzqA=/800x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/julianne-hough-blonde-hair-56a0849f3df78cafdaa2612e.jpg" alt="Heart3" height="350" width="400">
+                        </div>
+                        <div class="col-md-3">
+                            <img src="{% static 'images/Heart Hairstyles/long curls.jpg' %}" alt="Heart4" height="350" width="400">
+                        </div>
+
+                {% endif %}
+                {% else %}
+                <br> <h2 style = "color:aliceblue; text-align: center">Please Insert a valid photo</h2>
+                {% endif %}
+            {% else %}
+                  <br>
+                    <h1 style="color:white;">No Preview</h1>
+                {% endif %}
+        </div>
+        </div>
+      
+      
+      
+    
+  </body>
+ 
+</html>
+
